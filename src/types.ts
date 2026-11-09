@@ -95,6 +95,12 @@ export interface ParsedSiwe {
   chainId: number;
   nonce: string;
   issuedAt: string;
+  /** EIP-4361 Expiration Time, when the signer set one. Enforced. */
+  expirationTime?: string;
+  /** EIP-4361 Not Before, when the signer set one. Enforced. */
+  notBefore?: string;
+  /** EIP-4361 Request ID, when present. */
+  requestId?: string;
   statement?: string;
 }
 

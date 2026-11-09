@@ -43,6 +43,8 @@ app.post(
 );
 ```
 
+The `Authorization: Wallet` header carries a standard EIP-4361 (Sign-In with Ethereum) message, read strictly: an EIP-55 checksummed address, `Version: 1`, fields in the EIP-4361 order, a message of at most 4 KB. Signatures are accepted for five minutes after `Issued At`, and sooner if the signer set `Expiration Time` or `Not Before`.
+
 `siweDomain` is required and must match what your wallet clients put in their SIWE message domain field. Set it explicitly to the host your API serves SIWE messages for; don't rely on request-host inference behind reverse proxies.
 
 Adopters also bring their own NFT/SBT collection; any ERC-721 works. We used [RNWY](https://rnwy.com): the trust intelligence layer for autonomous AI agents. RNWY's audited ERC-5192 factory on Base provides the soulbound issuance substrate for the InsumerAccess collection that backs InsumerAPI's own customers. Other options: [Thirdweb](https://thirdweb.com/), [Crossmint](https://www.crossmint.com/), or your own contract. See [Get an InsumerAPI key](#get-an-insumerapi-key) below for the key acquisition step.

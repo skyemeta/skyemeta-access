@@ -1,6 +1,6 @@
 {
   "name": "@skyemeta/access",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Add wallet-token authentication to your API without disturbing existing API-key customers. Either-or middleware: API-key requests pass through unchanged; wallet-signed requests are verified via InsumerAPI's /v1/attest. Free, MIT, BYO InsumerAPI key.",
   "type": "module",
   "main": "build/index.js",
