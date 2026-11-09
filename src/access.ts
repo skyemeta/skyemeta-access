@@ -196,23 +196,23 @@ export class Access {
     wallet: string,
     collection: CollectionConfig,
   ): Promise<{ pass: boolean; pq?: PqResult }> {
-    const cached = this.cache.get(wallet, collection.address);
+    const cached = this.cache.get(wallet, collection);
     if (cached !== undefined) return { pass: cached };
 
     try {
       let pass: boolean;
       let pq: PqResult | undefined;
       if (this.localMode?.mockAttest) {
-        pass = Boolean(await this.localMode.mockAttest(wallet, collection.address));
+        pass = Boolean(await this.localMode.mockAttest(wallet, collection.address, collection.chain));
       } else {
         const verdict = await this.attestClient.checkPassWithVerdict(wallet, collection);
         pass = verdict.pass;
         pq = verdict.pq;
       }
-      this.cache.set(wallet, collection.address, pass);
+      this.cache.set(wallet, collection, pass);
       return { pass, pq };
     } catch (err) {
-      const stale = this.cache.getStale(wallet, collection.address, MAX_STALE_FALLBACK_MS);
+      const stale = this.cache.getStale(wallet, collection, MAX_STALE_FALLBACK_MS);
       if (stale !== undefined) {
         console.warn(
           `@skyemeta/access: /v1/attest unreachable; serving stale-cache result (within ${MAX_STALE_FALLBACK_MS}ms grace window)`,

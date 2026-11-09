@@ -54,7 +54,11 @@ export type ChainName =
   | 'arc';
 
 export interface LocalModeConfig {
-  mockAttest: (wallet: string, collection: string) => Promise<boolean> | boolean;
+  /**
+   * Development stand-in for /v1/attest. Receives the collection's contract address and chain;
+   * the result is cached per (wallet, chain, address), the same as a real attestation.
+   */
+  mockAttest: (wallet: string, collection: string, chain: ChainName) => Promise<boolean> | boolean;
 }
 
 export interface AccessConfig {
