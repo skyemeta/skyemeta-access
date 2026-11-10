@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2026-11-10)
+
+Documentation only; no code changes.
+
+- README: buying an InsumerAPI key with `/v1/keys/buy` is USDC only (Ethereum, Base, Polygon,
+  Arbitrum, Optimism, BNB Chain, Avalanche or Solana); USDT, Bitcoin and Tron are refused. The
+  example request now includes the required `senderSignature`, and the text to sign is described.
+
 ## 0.3.0 (2026-11-09)
 
 Security: the sign-in message parser is strict and runs in linear time.
