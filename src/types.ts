@@ -39,7 +39,6 @@ export type ChainName =
   | 'scroll'
   | 'linea'
   | 'zksync'
-  | 'blast'
   | 'celo'
   | 'opbnb'
   | 'unichain'
@@ -51,7 +50,8 @@ export type ChainName =
   | 'ronin'
   | 'viction'
   | 'xdc'
-  | 'arc';
+  | 'arc'
+  | 'tempo';
 
 export interface LocalModeConfig {
   /**
@@ -131,7 +131,6 @@ export const CHAIN_IDS: Record<ChainName, number> = {
   scroll: 534352,
   linea: 59144,
   zksync: 324,
-  blast: 81457,
   celo: 42220,
   opbnb: 204,
   unichain: 130,
@@ -144,4 +143,5 @@ export const CHAIN_IDS: Record<ChainName, number> = {
   viction: 88,
   xdc: 50,
   arc: 5042,
+  tempo: 4217,
 };
