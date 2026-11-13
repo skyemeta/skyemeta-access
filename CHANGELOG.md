@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.0 (2026-11-13)
 
 - `ChainName` and `CHAIN_IDS`: `blast` (81457) is removed. The network has shut down and
   InsumerAPI answers a request naming it with a 400. `tempo` (4217) is added. The count of EVM
